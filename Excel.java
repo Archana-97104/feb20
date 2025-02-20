@@ -56,6 +56,24 @@ public class Excel {
         workbook.close();
         return data.toArray(new Object[0][0]);
     }
+TESTRUNNER
+
+    package GrafanaSingleCase;
+
+import java.util.Collections;
+
+import org.testng.TestNG;
+
+public class Testrunner {
+
+	public static void main(String[] args) {
+		TestNG testng = new TestNG();
+		testng.setTestSuites(Collections.singletonList("testng.xml")); // Path to your TestNG XML file
+		testng.run();
+
+	}
+
+}
 
   
 }
