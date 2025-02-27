@@ -194,6 +194,13 @@ public class Base {
 
 	public Map<String, String> readUtilityInput(String filePath) {
 		Map<String, String> utilityData = new HashMap<>();
+		File file = new File(filePath);
+		System.out.println("Attempting to load Excel file from: " + file.getAbsolutePath());
+	    
+	    if (!file.exists()) {
+	        System.out.println("Error: Excel file does not exist at " + file.getAbsolutePath());
+	        return utilityData;
+	    }
 		try (FileInputStream fis = new FileInputStream(new File(filePath))) {
 			Workbook workbook = WorkbookFactory.create(fis);
 			Sheet sheet = workbook.getSheetAt(0);
